@@ -1,6 +1,6 @@
-import * as React from 'react';
+import * as React from 'react'
+import TodoHeader from '../../components/TodoHeader'
 import './style.css'
-
 
 
 class App extends React.Component<{}, {}> {
@@ -8,10 +8,7 @@ class App extends React.Component<{}, {}> {
     return <>
 
       <section className="todoapp">
-        <header className="header">
-          <h1>todos</h1>
-          <input className="new-todo" placeholder="What needs to be done?" /> 
-        </header>
+        <TodoHeader name="todos" />
         <section className="main">
           <input id="toggle-all" className="toggle-all" type="checkbox" />
           <label htmlFor="toggle-all">Mark all as complete</label>
