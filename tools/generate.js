@@ -2,7 +2,7 @@
 
 const fs = require('fs')
 const path = require('path')
-var program = require('commander')
+const program = require('commander')
 
 program
     .version('0.1.0')

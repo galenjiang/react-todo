@@ -26,6 +26,7 @@
     "webpack",
     "jest",
     "src/setupTests.ts",
-    "tools"
+    "tools",
+    "src/**/*.test.tsx"
   ]
 }
