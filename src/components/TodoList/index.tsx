@@ -1,13 +1,6 @@
 import * as React from 'react';
 import './style.css'
-
-export interface ITodoItem {
-    name: string
-    key: string
-    done: boolean
-}
-
-export type IType = 'all' | 'completed' | 'active'
+import { ITodoItem, IType } from '../../containers/Todo'
 
 export interface IProps {
     todo: ITodoItem[]

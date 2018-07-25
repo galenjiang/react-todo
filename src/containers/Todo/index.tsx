@@ -1,17 +1,25 @@
 import * as React from 'react'
 import { Router } from 'director/build/director'
 import TodoHeader from '../../components/TodoHeader'
-import TodoFooter, { IShow } from '../../components/TodoFooter'
-import TodoList, { ITodoItem, IType } from '../../components/TodoList'
+import TodoFooter from '../../components/TodoFooter'
+import TodoList from '../../components/TodoList'
 import TodoItem from '../../components/TodoItem'
 import AppFooter from '../../components/AppFooter'
 import TodoToggleAll from "../../components/TodoToggleAll";
 import { getUuid } from "../../utils";
 import './style.css'
 
+
+export type IType = 'all' | 'completed' | 'active'
+
+export interface ITodoItem {
+    name: string
+    key: string
+    done: boolean
+}
+
 interface IState {
     todo: ITodoItem[]
-    nowShowing: IShow
     filterType: IType
 }
 
@@ -23,7 +31,6 @@ class App extends React.Component<{}, IState> {
         this.state = {
 
             filterType: 'all',
-            nowShowing: 'all',
             todo: [
                 {
                     done: true,
@@ -40,7 +47,7 @@ class App extends React.Component<{}, IState> {
     }
 
     public render() {
-        const { filterType, nowShowing, todo } = this.state
+        const { filterType, todo } = this.state
 
 
         return <>
@@ -62,7 +69,7 @@ class App extends React.Component<{}, IState> {
                     </TodoList>
 
                 </section>
-                <TodoFooter nowShowing={nowShowing} incompleteLength={this.incompleteTodoLength} clearCompleted={this.clearCompleted}/>
+                <TodoFooter filterType={filterType} incompleteLength={this.incompleteTodoLength} clearCompleted={this.clearCompleted}/>
             </section>
             <AppFooter/>
         </>;
@@ -72,9 +79,9 @@ class App extends React.Component<{}, IState> {
 
         const setState = this.setState
         const router = Router({
-            '/': setState.bind(this, { nowShowing: 'all' }),
-            '/active': setState.bind(this, { nowShowing: 'active' }),
-            '/completed': setState.bind(this, { nowShowing: 'complete' }),
+            '/': setState.bind(this, { filterType: 'all' }),
+            '/active': setState.bind(this, { filterType: 'active' }),
+            '/completed': setState.bind(this, { filterType: 'completed' }),
         })
 
         router.init()
