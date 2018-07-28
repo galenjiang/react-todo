@@ -1,18 +1,18 @@
 import * as React from 'react';
 import c from 'classnames'
 import './style.css'
-import { IType } from '../../containers/Todo'
+import { IVisibilityFilter } from "../../store/reducers";
 
 interface IProps {
     incompleteLength: number
-    clearCompleted: () => void
-    filterType: IType
+    removeCompleted: () => void
+    filterType: IVisibilityFilter
 }
 
 class TodoFooter extends React.Component<IProps, {}> {
     public render() {
 
-        const { incompleteLength, clearCompleted, filterType } = this.props
+        const { incompleteLength, removeCompleted, filterType } = this.props
 
         return <footer className="footer">
             <span className="todo-count"><strong>{incompleteLength}</strong> item left</span>
@@ -27,7 +27,7 @@ class TodoFooter extends React.Component<IProps, {}> {
                     <a className={c({selected: filterType === 'completed'})} href="#/completed">Completed</a>
                 </li>
             </ul>
-            <button onClick={clearCompleted} className="clear-completed">Clear completed</button>
+            <button onClick={removeCompleted} className="clear-completed">Clear completed</button>
         </footer>
     }
 }
