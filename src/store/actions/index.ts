@@ -1,4 +1,4 @@
-import { IAction, IWithPayloadAction, ActionUnion } from './utils'
+import { IAction, IWithPayloadAction, ActionUnion, actionCreator } from './utils'
 import { IVisibilityFilter } from '../reducers'
 
 
@@ -14,20 +14,6 @@ export enum actionType {
 }
 
 
-function actionCreator<T extends string>(type: T): IAction<T>
-function actionCreator<T extends string, P>(type: T, payload: P): IWithPayloadAction<T, P>
-function actionCreator<T extends string, P>(type: T, payload?: P) {
-    if (payload === undefined) {
-        return {
-            type
-        }
-    } else {
-        return {
-            payload,
-            type,
-        }
-    }
-}
 
 
 
