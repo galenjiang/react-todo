@@ -9,7 +9,7 @@ const mapStateToProps = (state: IStoreState) => ({
 })
 
 const mapDispatchToProps = (dispath: Dispatch) => ({
-    addTodo: (text: string) => dispath(Actions.addTodo(text))
+    addTodo: (text: string) => dispath(Actions.addTodoDelay(text))
 })
 
 export default connect(
