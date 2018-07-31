@@ -1,4 +1,4 @@
-import { ActionUnion, actionCreator } from './utils'
+import { ActionUnion, actionCreator, ActionMap } from './utils'
 import { IVisibilityFilter } from '../reducers'
 import { map, delay } from "rxjs/operators";
 import { ofType } from "redux-observable";
@@ -30,12 +30,17 @@ export const Actions = {
     setVisibilityFilter: (type: IVisibilityFilter) => actionCreator(actionType.SET_VISIBILITY_FILTER, type)
 }
 
+
+
 export type IActionInstance = ActionUnion<typeof Actions>
+
+export type IActionMap = ActionMap<typeof Actions>
+
 
 export function epic(action$: Observable<IActionInstance>):Observable<IActionInstance> {
     return action$.pipe(
-        ofType<ReturnType<typeof Actions.addTodoDelay>>(actionType.ADD_TODO_DELAY),
-        delay(1000),
+        ofType<IActionMap['addTodoDelay']>(actionType.ADD_TODO_DELAY),
+        delay(300),
         map((action) => {
             return Actions.addTodo(action.payload)
         }),
