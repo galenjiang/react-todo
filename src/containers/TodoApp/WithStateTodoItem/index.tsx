@@ -6,8 +6,8 @@ import { Actions } from "../../../store/actions";
 
 const mapStateToProps = (state: IStoreState) => {
     return {
-        filterType: state.filterType,
-        todos: state.todos,
+        // filterType: state.filterType,
+        // todos: state.todos,
     }
 }
 

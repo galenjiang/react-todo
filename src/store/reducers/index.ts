@@ -52,14 +52,19 @@ function todos(state: ITodo[] = [
                 }
             })
         case actionType.CHANGE_TODO_TEXT:
-            return [
-                ...state,
-                {
-                    completed: false,
-                    key: getUuid(),
-                    text: action.payload
+
+            return state.map((todo, index) => {
+                if (index === action.payload.index) {
+                    return {
+                        ...todo,
+                        text: action.payload.text,
+                    }
+                } else {
+                    return {
+                        ...todo
+                    }
                 }
-            ]
+            })
         case actionType.TOGGLE_ALL_TODO:
 
             // incomplete task length
