@@ -28,6 +28,10 @@ class TodoList extends React.Component<IProps, {}> {
             }
         </ul>
     }
+    d() {
+        document.addEventListener('click')
+    }
+
 }
 
 
