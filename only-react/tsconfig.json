@@ -8,15 +8,19 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
+    "lib": ["es6", "dom"],
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
-        "@Components/*": ["src/components/*"]
-    }
+        "@Components/*": ["./src/components/*"],
+        "@Containers/*": ["./src/containers/*"],
+        "@utils": ["./src/utils"],
+    },
+    "traceResolution": false
   },
   "include": [
     "src"
