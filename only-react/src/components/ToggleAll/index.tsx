@@ -9,7 +9,7 @@ interface IProps {
 export function ToggleAll(props: IProps) {
 
     return <>
-        <input id="toggle-all" className="toggle-all" type="checkbox" checked={props.allSelected}  onChange={props.onToggleAll} />,
+        <input id="toggle-all" className="toggle-all" type="checkbox" checked={props.allSelected}  onChange={props.onToggleAll} />
         <label htmlFor="toggle-all">Mark all as complete</label>
     </>
 }

@@ -1,4 +1,6 @@
 import * as React from 'react';
+
+import { hot } from 'react-hot-loader'
 import { Router } from 'director/build/director'
 import './App.css';
 import { Header } from '@Components/Header';
@@ -269,4 +271,4 @@ class App extends React.Component<{}, IState> {
     }
 }
 
-export default App;
+export default hot(module)(App);
