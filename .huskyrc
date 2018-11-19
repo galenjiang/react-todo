@@ -1,1 +1,5 @@
-precommit: lerna run --concurrency 1 --stream precommit
+{
+    "hooks": {
+        "pre-commit": ""
+    }
+}
